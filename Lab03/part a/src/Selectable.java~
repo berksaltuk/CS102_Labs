@@ -1,0 +1,7 @@
+public interface Selectable{
+
+   boolean getSelected();
+   void setSelected( boolean selected);
+   
+
+}
