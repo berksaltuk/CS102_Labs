@@ -1,0 +1,51 @@
+package hangmangame.extras;
+
+import cs102.hangman.*;
+import javax.swing.*;
+import java.awt.event.*;
+import java.awt.*;
+import javax.swing.border.*;
+
+public class LabelsHangmanView extends JPanel implements IHangmanView{
+   
+   JLabel incorrect;
+   JLabel soFar;
+   JLabel used;
+   JLabel lost;
+   Hangman hm;
+   
+   public LabelsHangmanView( Hangman hm){
+      
+      this.hm = hm;
+      
+      incorrect = new JLabel();
+      soFar = new JLabel();
+      used = new JLabel();
+      lost = new JLabel();
+      
+      updateView(hm);
+      
+      add( incorrect);
+      add( soFar);
+      add( used);
+      add( lost);
+      
+      setBackground( Color.ORANGE);
+      
+      setLayout( new GridLayout( 4, 1));
+   }
+   
+   public void updateView( Hangman hm)
+   {
+      Timer timer = new Timer( 25, new ActionListener(){
+         public void actionPerformed( ActionEvent e){
+            incorrect.setText( "Incorrect tries: " + hm.getNumOfIncorrectTries() );
+            soFar.setText( "Revealed letters so far: " + hm.getKnownSoFar() );
+            used.setText( "Used letters: " + hm.getUsedLetters() );
+            lost.setText( "Has game lost?: " + hm.hasLost() );
+         }
+      });
+      
+      timer.start();
+   }
+}

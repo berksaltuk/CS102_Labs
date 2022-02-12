@@ -1,0 +1,38 @@
+package hangmangame.extras;
+
+import cs102.hangman.*;
+import javax.swing.*;
+import java.awt.event.*;
+import java.awt.*;
+import javax.swing.border.*;
+
+public class TextFieldControlPanel extends JPanel{
+   
+   Hangman hangman;
+   JTextField tf1;
+   
+   public TextFieldControlPanel(Hangman hangman){
+      this.hangman = hangman;    
+      hangman = new Hangman( new BasicSetup() );
+      tf1 = new JTextField(10);
+      tf1.addActionListener( new MyActionListener());
+      add( tf1);
+   }
+   
+   public class MyActionListener implements ActionListener{
+      
+      String letter;
+      public void actionPerformed( ActionEvent e)
+      {
+         if( e.getSource() == tf1 )
+         {
+            letter = tf1.getText(); 
+            for ( int i = 0; i < letter.length(); i++)
+            {
+               hangman.tryThis(letter.charAt(i));
+            }
+            tf1.setText("");
+         }
+      }
+   }
+}

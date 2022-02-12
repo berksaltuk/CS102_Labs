@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<drjava version="drjava-20140826-r5761">
+  <project autorefresh="false" build="classes/" main="TestList" root="" work="src/">
+    <createjar file=""/>
+    <source>
+      <file active="true" name="src/ListTestCase.java" package="" timestamp="13-May-2020 00:07:12">
+        <select from="653" to="653"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="src/List.java" package="" timestamp="12-May-2020 23:47:41">
+        <select from="653" to="653"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="src/TestList.java" package="" timestamp="13-May-2020 10:03:01">
+        <select from="653" to="653"/>
+        <scroll column="0" row="0"/>
+      </file>
+    </source>
+    <included/>
+    <excluded/>
+    <collapsed/>
+    <classpath/>
+    <breakpoints/>
+    <watches/>
+    <bookmarks/>
+    <preferences/>
+  </project>
+</drjava>

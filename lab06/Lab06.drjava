@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<drjava version="drjava-20140826-r5761">
+  <project autorefresh="false" build="classes/" main="Lab06" root="" work="src/">
+    <createjar file=""/>
+    <source>
+      <file active="true" name="src/Lab06.java" package="" timestamp="29-Apr-2020 10:00:28">
+        <select from="963" to="963"/>
+        <scroll column="0" row="0"/>
+      </file>
+    </source>
+    <included/>
+    <excluded/>
+    <collapsed/>
+    <classpath/>
+    <breakpoints/>
+    <watches/>
+    <bookmarks/>
+    <preferences/>
+  </project>
+</drjava>

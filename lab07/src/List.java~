@@ -1,0 +1,365 @@
+import java.util.*;
+
+/**
+ * Linked List Class
+ * Author: Berk Saltuk Yýlmaz
+ * Date: 13.05.2020
+ * version 1.0
+ */
+public class List{
+   
+   // properties
+   private Node head;
+   
+   // constructor
+   public List()
+   {
+      
+      head = null;
+   }
+   
+   // methods
+   
+   /**
+    * A method for adding elements to the head
+    * param a string.
+    */
+   public void addToHead( String item)
+   {
+      Node newNode = new Node( item, head);
+      
+      head = newNode;
+   }
+   
+   /**
+    * A method for adding elements to the tail
+    * param a string.
+    */
+   public void addToTail( String item ) // iterative method
+   {
+      if ( head == null )
+      {
+         addToHead( item );
+      }
+      
+      else
+      {
+         tail().next = new Node( item, null );
+      }
+   }
+   
+   /**
+    * A method for removing elements from the tail
+    * return the new head's data
+    */
+   public String removeFromHead()
+   {
+      if ( head == null ) 
+      { 
+         throw new NoSuchElementException(); 
+      }
+      
+      head = next( head );
+      
+      return head.data;
+   }
+   
+   /**
+    * A method for checking whether list is empty
+    * return true or false
+    */
+   public boolean isEmpty()
+   {
+      return head == null;
+   }
+   
+   /**
+    * A method for getting the string at the desired index
+    * param the index of element
+    * return the string at the index
+    */
+   public String getData( int index ) // invalid index returns null
+   {
+      if(head == null || index < 0)
+      {
+         return null;
+      }
+      
+      else if(index == 0)
+      {
+         return head.data;
+      }
+      
+      else
+      {
+         Node temp = head;
+         int count = 0;
+         
+         while( temp.next != null && count < index )
+         {
+            temp = temp.next;
+            count++;
+         }
+         
+         return temp.data;
+      }
+   }
+   
+   /**
+    * A method for printing forward
+    */
+   public void print() // iterative method
+   {
+      String result = "";
+      
+      Node temp = head;
+      
+      while( temp != null ){
+         
+         result = result + temp.data + " ";
+         temp = temp.next;
+         
+      }
+      
+      System.out.println( result );
+   }
+   
+   /**
+    * A method for printing reverse
+    */
+   public void printReverse() // recursive method
+   {
+      if( head.next == null )
+      {
+         System.out.print( head.data + " " );
+      }
+      else
+      {   
+         List temp = new List();
+         
+         temp.head = this.head.next;
+         temp.printReverse();
+         System.out.print( head.data + " " );
+      }
+      
+   }
+   
+   /**
+    * A method for checking whether the list have the target string or not.
+    * param a string.
+    * return true or false.
+    */
+   public boolean contains( String target) // true if target is in the list, else false
+   {
+      boolean isContaining = false;
+      
+      for ( Node p = head; p != null; p = p.next )
+      {
+         if( p.data == target )
+         {
+            isContaining = true;
+         }
+      }
+      
+      return isContaining;
+   }
+   
+   /**
+    * A method for checking if values are strictly ascending.
+    * return true or false.
+    */
+   public boolean isOrdered() // true if values strictly ascending, else false 
+   {
+      Node temp = head.next; 
+      Node forHead = head;
+      if ( head == null )
+      {
+         return true;
+      }
+      
+      if ( temp != null)
+      {
+         
+         while( forHead != null && temp != null )
+         {
+            if( forHead.data.compareTo( temp.data ) >= 0)
+            {
+               return false;
+            }
+            forHead = forHead.next;
+            temp = temp.next;
+         }
+      }
+      return true;
+   }
+   
+   @Override
+   public String toString()
+   {
+      String result = "";
+      
+      Node temp = head;
+      
+      while( temp != null ){
+         
+         result = result + temp.data + " ";
+         temp = temp.next;
+         
+      }
+      
+      return result;
+   }
+   
+   /**
+    * A method for getting the next node.
+    * param a node.
+    * return the next node
+    */
+   public Node next( Node n )
+   {
+      if( n.next == null )
+      {
+         return null;
+      }
+      else
+      {
+         return n.next;
+      }
+   }
+   
+   /**
+    * A method for getting the previous node.
+    * param a node.
+    * return the previous node.
+    */
+   public Node previous( Node n )
+   {
+      Node temp = head;
+      
+      while( temp.next != null )
+      {
+         if( temp.next == n )
+         {
+            return temp;
+         }
+      }
+      
+      return null;
+   }
+   
+   
+   /**
+    * A method for getting the tail of the list
+    * return the list's tail.
+    */
+   public Node tail()
+   {
+      Node temp = head;
+      
+      while( temp.next != null )
+      {
+         temp = temp.next;
+      }
+      
+      return temp;
+   }
+   
+   /**
+    * Node inner class
+    * Author: Berk Saltuk Yýlmaz
+    * Date: 13.05.2020
+    * version 1.0
+    */
+   private class Node {
+      
+      // properties
+      String data;
+      Node next;
+      
+      // constructor
+      public Node( String data, Node next) {
+         this.data = data;
+         this.next = next;
+      }
+      
+   } // end class Node
+   
+   // static methods
+   
+   /**
+    * A method for creating a list from a string array
+    * param string array
+    * return new list
+    */
+   public static List createFrom( String[] arr )
+   {
+      List newList = new List();
+      
+      for ( int i = 0; i < arr.length; i++)
+      {
+         newList.addToTail( arr[i] );
+      }
+      
+      return newList;
+   }
+   
+   /**
+    * A method for creating a list from a string's chars
+    * param string array
+    * return new list
+    */
+   public static List createFrom( String str )
+   {
+      List newList = new List();
+      
+      for ( int i = 0; i < str.length(); i++)
+      {
+         newList.addToTail( "" + str.charAt(i) );
+      }
+      
+      return newList;
+   }
+   
+   /**
+    * Comments will be added when done.
+    */
+   public static List merger( List a, List b)
+   {
+      List newList = new List();
+      boolean contains = false;
+      
+      for( Node i = a.head; i != null; i = i.next)
+      {
+         for( Node j = b.head; j != null; j = j.next)
+         {
+            if( i.data.equalsIgnoreCase(j.data))
+            {
+               contains = true;
+            }
+         }
+         if( !contains)
+         {
+            newList.addToTail( i.data);
+         }
+         contains = false;
+      }
+      
+      for( Node i = b.head; i != null; i = i.next)
+      {
+         for( Node j = a.head; j != null; j = j.next)
+         {
+            if( i.data.equalsIgnoreCase(j.data))
+            {
+               contains = true;
+            }
+         }
+         if( !contains)
+         {
+            newList.addToTail( i.data);
+         }
+         contains = false;
+      }
+      
+      return newList;
+   }
+}

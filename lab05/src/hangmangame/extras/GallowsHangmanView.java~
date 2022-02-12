@@ -1,0 +1,88 @@
+package hangmangame.extras;
+
+import cs102.hangman.*;
+import javax.swing.*;
+import java.awt.event.*;
+import java.awt.*;
+import javax.swing.border.*;
+import java.util.ArrayList;
+
+public class GallowsHangmanView extends JPanel implements IHangmanView{
+   
+   Hangman hm;
+   JLabel label;
+   
+   public GallowsHangmanView( Hangman hm)
+   {
+      this.hm = hm;
+      label = new JLabel( "Let's have some fun!" );
+      add( label);
+      updateView( hm );
+   }
+   
+   public void paintComponent( Graphics g)
+   {
+      super.paintComponent( g);
+      setBackground( Color.CYAN);
+      
+      g.fillRect(50,25,125, 25);
+      g.fillRect(50,25,25,250);
+      g.fillRect(175, 25, 12, 50);
+      g.fillRect(25, 250, 200, 37);
+  
+      if(  hm.getNumOfIncorrectTries() >= 1)
+      {
+         g.drawOval( 157, 75, 50, 50);
+         label.setText( "You have " + (6 - hm.getNumOfIncorrectTries() ) + " tries left!" );
+      }
+      if(  hm.getNumOfIncorrectTries() >= 2)
+      {
+         g.drawLine( 182, 125, 182, 175);
+         label.setText( "You have " + (6 - hm.getNumOfIncorrectTries() ) + " tries left!" );
+      }
+      if(  hm.getNumOfIncorrectTries() >= 3)
+      {
+         g.drawLine( 157, 145, 182, 135);
+         label.setText( "You have " + (6 - hm.getNumOfIncorrectTries() ) + " tries left!" );
+      }
+      if(  hm.getNumOfIncorrectTries() >= 4)
+      {
+         g.drawLine( 182, 135, 207, 145);
+         label.setText( "You have " + (6 - hm.getNumOfIncorrectTries() ) + " tries left!" );
+      }
+      if(  hm.getNumOfIncorrectTries() >= 5)
+      {
+         g.drawLine( 157, 205, 182, 175);
+         label.setText( "Your last chance!" );
+      }
+      if(  hm.getNumOfIncorrectTries() >= 6)
+      {
+         g.drawLine( 182, 175, 207, 205);
+         label.setText( "You have lost the game!" );
+      }
+      
+      if( hm.isGameOver() && !hm.hasLost() )
+      {
+      label.setText( "Well, well, well... WE HAVE A WINNER!" );
+      }
+   }
+   
+   public void updateView( Hangman hm )
+   {
+       Timer timer = new Timer( 25, new ActionListener(){
+         public void actionPerformed( ActionEvent e){
+           
+            repaint();
+            
+            if ( hm.getUsedLetters().equals("") )
+            {
+               label.setText("Let's have some fun!");
+            }
+         }
+      });
+      
+      timer.start();
+      
+   }
+}
+
