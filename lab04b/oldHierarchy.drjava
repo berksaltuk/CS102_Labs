@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<drjava version="drjava-20140826-r5761">
+  <project autorefresh="false" build="classes/" main="ShapeTester" root="" work="src/">
+    <createjar file=""/>
+    <source>
+      <file active="true" name="src/ShapeContainer.java" package="src" timestamp="07-Apr-2020 23:22:29">
+        <select from="1662" to="1662"/>
+        <scroll column="3525" row="0"/>
+      </file>
+      <file name="src/Circle.java" package="src" timestamp="05-Apr-2020 20:01:52">
+        <select from="1662" to="1662"/>
+        <scroll column="3525" row="0"/>
+      </file>
+      <file name="src/Rectangle.java" package="src" timestamp="05-Apr-2020 15:58:43">
+        <select from="1662" to="1662"/>
+        <scroll column="3525" row="0"/>
+      </file>
+      <file name="src/Locatable.java" package="src" timestamp="05-Apr-2020 15:58:43">
+        <select from="1662" to="1662"/>
+        <scroll column="3525" row="0"/>
+      </file>
+      <file name="src/Selectable.java" package="src" timestamp="05-Apr-2020 15:58:43">
+        <select from="1662" to="1662"/>
+        <scroll column="3525" row="0"/>
+      </file>
+      <file name="src/Shape.java" package="src" timestamp="05-Apr-2020 15:58:43">
+        <select from="1662" to="1662"/>
+        <scroll column="3525" row="0"/>
+      </file>
+      <file name="src/Square.java" package="src" timestamp="05-Apr-2020 15:58:43">
+        <select from="1662" to="1662"/>
+        <scroll column="3525" row="0"/>
+      </file>
+      <file name="src/ShapeTester.java" package="src" timestamp="05-Apr-2020 15:58:43">
+        <select from="1662" to="1662"/>
+        <scroll column="3525" row="0"/>
+      </file>
+      <file name="src/Drawable.java" package="src" timestamp="05-Apr-2020 16:04:12">
+        <select from="1662" to="1662"/>
+        <scroll column="3525" row="0"/>
+      </file>
+    </source>
+    <included/>
+    <excluded/>
+    <collapsed/>
+    <classpath/>
+    <breakpoints/>
+    <watches/>
+    <bookmarks/>
+    <preferences/>
+  </project>
+</drjava>

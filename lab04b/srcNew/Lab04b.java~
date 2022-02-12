@@ -1,0 +1,27 @@
+package srcNew;
+
+import src.*;
+import java.util.*;
+import java.awt.*;
+import javax.swing.*;
+
+public class Lab04b{
+   
+   public static void main( String[] args )
+   {
+   
+      JFrame balloon;
+      BalloonsGamePanel gamePanel;
+      
+      gamePanel = new BalloonsGamePanel();
+      
+      balloon = new JFrame( "Balloon Game");
+      balloon.setPreferredSize( new Dimension( 800, 600));
+      balloon.setBackground( Color.black);
+      balloon.getContentPane().add(gamePanel);
+      
+      balloon.pack();
+      balloon.setVisible( true);
+   
+   }
+}
