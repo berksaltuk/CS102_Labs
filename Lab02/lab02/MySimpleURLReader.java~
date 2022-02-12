@@ -1,0 +1,44 @@
+import cs1.SimpleURLReader;
+
+/**
+ * Author: Berk Saltuk Yýlmaz
+ * Version: 03.03.2020
+ * My URL Reader
+ */
+
+public class MySimpleURLReader extends SimpleURLReader {
+   
+   String url;
+   
+   public MySimpleURLReader( String n ){
+      super( n );
+      
+      url = n;
+   }
+   
+   public String getName(){
+      
+      // variables
+      int lastSlash = 0;
+      int index = url.length() - 1;
+      boolean lastSlashFound = false;
+      
+      while( !lastSlashFound && index >= 0  )
+      {
+        if ( url.charAt(index) == '/')
+        {
+           lastSlash = index;
+           lastSlashFound = true;
+        }
+        
+        index = index - 1;
+      }
+      return url.substring( lastSlash + 1, url.length() );
+   }
+   
+   public String getPageContents(){
+      
+      return super.getPageContents().substring(4, super.getPageContents().length());
+      
+   }
+}

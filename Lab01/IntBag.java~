@@ -1,0 +1,141 @@
+import java.util.*;
+import java.util.Scanner;
+
+/**
+ * Author : Berk Saltuk Yýlmaz
+ * Version: 1.0
+ * 19 February 2020
+ */
+public class IntBag {
+   // properties
+   int[] bag;
+   int valid;
+   final int MAX = 100;
+   
+   // constructors
+   
+   //empty collection constructor
+   IntBag ()
+   {
+      bag = new int[MAX];
+      valid = 0;
+      
+   }
+   
+   //max number of elements constructor
+   IntBag (int maxDesired)
+   {   
+      bag = new int[ maxDesired];
+      valid = 0;
+   }
+   
+   // methods
+   
+   //method adds the end of array
+   public void add(int value)
+   {      
+      if (valid <= MAX)
+      {
+         bag[valid] = value;
+         valid++;
+      }      
+   }
+   
+   //adds to the specific part
+   public void add(int i, int value)
+   {
+      if ( i <= valid - 1)
+      {
+         for ( int j = valid - 1; i <= j; j--)
+         {
+            bag[ j + 1] = bag[ j];
+            
+         }
+         bag[i] = value;
+         valid++;
+      }
+      
+   }
+   
+   //remove method
+   public void remove(int i)
+   {
+      
+      if ( i >= 0 && i < valid)
+      {
+         for ( int j = i + 1; j < valid; j++)
+         {
+            bag[ j - 1] = bag[ j];
+         }
+         valid--;
+      }
+      
+      
+   }
+   
+   //contains or not
+   public boolean contains(int value)
+   {
+      
+      for ( int i = 0; i < MAX; i++)
+      {
+         if ( value == bag[i])
+         {
+            return true;
+         }
+      }
+      
+      return false;
+   }
+   
+   //size method
+   public int size()
+   {
+      return valid;
+   }
+   
+   //get method
+   public String get(int i)
+   {
+      if ( i <= valid)
+      {
+         return "" + bag[i];
+      }
+      
+      return "Error!";
+   }
+   
+   //toString method
+   public String toString()
+   {
+      String result;
+      result = "";
+      
+      for (int i = 0; i < valid; i++)
+      {
+         result = result + bag[i] + " ";
+      }
+      
+      return result;
+   }
+   
+   // method for finding the locations of a value
+   public IntBag findAll( IntBag i, int value)
+   {
+      IntBag found = new IntBag();
+      
+      if ( i.contains( value))
+      {
+         for (int j = 0; j < i.size(); j++)
+         {
+            if ( Integer.parseInt( i.get(j)) == value)
+            {
+               found.add(j);
+            }
+         }
+      }
+      
+      return found;
+   }
+   
+}

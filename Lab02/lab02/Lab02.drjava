@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<drjava version="drjava-20190813-220051">
+  <project autorefresh="false" build="classes/" main="MenuDrivenProgram" root="" work="src/">
+    <createjar file=""/>
+    <source>
+      <file active="true" name="CurrencyReader.java" package="" timestamp="04-Mar-2020 11:48:44">
+        <select from="995" to="995"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="MySimpleURLReader.java" package="" timestamp="04-Mar-2020 09:29:59">
+        <select from="995" to="995"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="HTMLFilteredReader.java" package="" timestamp="04-Mar-2020 09:46:40">
+        <select from="995" to="995"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="MenuDrivenProgram.java" package="" timestamp="04-Mar-2020 09:59:59">
+        <select from="995" to="995"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="XHTMLFilteredReader.java" package="" timestamp="04-Mar-2020 10:41:43">
+        <select from="995" to="995"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="TestUrl.java" package="" timestamp="04-Mar-2020 11:54:30">
+        <select from="995" to="995"/>
+        <scroll column="0" row="0"/>
+      </file>
+    </source>
+    <included/>
+    <excluded/>
+    <collapsed/>
+    <classpath>
+      <file absolute="true" name="H:/private/cs102/cs1.jar"/>
+    </classpath>
+    <breakpoints/>
+    <watches/>
+    <bookmarks/>
+    <preferences/>
+  </project>
+</drjava>
